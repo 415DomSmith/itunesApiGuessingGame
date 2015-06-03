@@ -5,8 +5,8 @@ body{
 
 #header {
 	border: 1px black solid;
-	height: 15px;
-	margin-bottom: 20px;
+	height: 10px;
+	margin-bottom: 10px;
 	background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #7f2bb8);
   background-image: -moz-linear-gradient(top, #3498db, #7f2bb8);
@@ -23,7 +23,7 @@ body{
   font-family: Arial;
   color: #ffffff;
   font-size: 20px;
-  padding: 10px 20px 10px 20px;
+  padding: 5px 20px 15px 20px;
   border: solid #010a0f 1px;
   text-decoration: none;
   display: flex;
@@ -99,7 +99,7 @@ body{
 }
 
 #albumCover {
-  
+
 }
 
 #score {
