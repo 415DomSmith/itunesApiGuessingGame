@@ -6,10 +6,6 @@ $(function() {
   var playingSong = "",
   		score = 0;
 
-
-
-	
-
 	$('#startButton').on('click', function(){
 		var songBank = shuffle(songIds);  //calls shuffle function, and saves result to an array.
 		var songBank4 = songBank.slice(0, 4) //take first 4 songs from shuffled array and create a new array with just those 4.
@@ -18,14 +14,7 @@ $(function() {
 		var getDivs = document.getElementsByClassName("options");
 		shuffleDivs(getDivs);
 		getData();
-		
-	
 	});
-
-
-
-
-
 
 	function getData (){
 		$.ajax({
@@ -96,120 +85,49 @@ $(function() {
 }
 
 
-function shuffle(arr) {
-	var randomizedArr = arr;
-  for(var i = 0; i < randomizedArr.length; i++) {
-    var arrVal = randomizedArr[i];
-    var randoNum = Math.floor(Math.random()* randomizedArr.length);
-    var randoIndex = randomizedArr[randoNum];
-    randomizedArr[i] = randoIndex;
-    randomizedArr[randoNum] = arrVal; 
-  }
-  return randomizedArr;
-};
+	function shuffle(arr) {
+		var randomizedArr = arr;
+	  for(var i = 0; i < randomizedArr.length; i++) {
+	    var arrVal = randomizedArr[i];
+	    var randoNum = Math.floor(Math.random()* randomizedArr.length);
+	    var randoIndex = randomizedArr[randoNum];
+	    randomizedArr[i] = randoIndex;
+	    randomizedArr[randoNum] = arrVal; 
+	  }
+	  return randomizedArr;
+	};
 
 
 
-function shuffleDivs(elems) {
- 
-  allElems = (function(){
-		var ret = [], 
-		l = elems.length;
-			while (l--) { 
-				ret[ret.length] = elems[l]; 
-			}
-			return ret;
-  })();
- 
-  var shuffled = (function(){
-    var l = allElems.length, 
-    ret = [];
-      while (l--) {
-        var random = Math.floor(Math.random() * allElems.length),
-            randEl = allElems[random].cloneNode(true);
-        allElems.splice(random, 1);
-        ret[ret.length] = randEl;
-      }
-        return ret; 
-    })(), 
-    l = elems.length;
-    	while (l--) {
-        elems[l].parentNode.insertBefore(shuffled[l], elems[l].nextSibling);
-        elems[l].parentNode.removeChild(elems[l]);
-    	}
- 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function shuffleDivs(){
-// 	var elements = $("#shuffleDv")
-// 	console.log(elements);
-//   var copy = [].concat(elements)
-//   var shuffled = []
-//   var placeholders = []
-
-//   // Shuffle the element array
-//   while (copy.length) {
-//     var rand = Math.floor(Math.random() * copy.length)
-//     var element = copy.splice(rand,1)[0]
-//     shuffled.push(element)
-//   }
-
-//   // replace all elements with a plcaceholder
-//   for (var i = 0; i < elements.length; i++) {
-//     var placeholder = document.createTextNode('')
-//     findAndReplace(elements[i], placeholder)
-//     placeholders.push(placeholder)
-//   }
-
-//   // replace the placeholders with the shuffled elements
-//   for (var i = 0; i < elements.length; i++) {
-//     findAndReplace(placeholders[i], shuffled[i])
-//   }
-
-//   return $(shuffled)
-
-// }
-
-
-
-
-
-// function shuffleDivs(){
-//   $("#shuffledv").each(function(){
-// 		var divs = $(this).find('div');
-// 	  	for(var i = 0; i < divs.length; i++){ 
-// 	    	$(divs[i]).remove();            
-// 	    }  
-//   	var dvsLength = divs.length;
-//   	if ( dvsLength == 0 ){
-//   		return false;	
-//   	}while ( dvsLength > 0 ) {
-//       var rand = Math.floor( Math.random() * ( dvsLength + 1 ) );
-//       var tempi = divs[dvsLength];
-//       var tempj = divs[rand];
-//       divs[dvsLength] = tempj;
-//       divs[rand] = tempi;
-//       dvsLength--
-//     }
-//     for(var k = 0; k < divs.length; k++){
-//      $(divs[k]).appendTo(this);
-//    	}
-//   });                    
-// }
-
+	function shuffleDivs(elems) {
+	 
+	  allElems = (function(){
+			var ret = [], 
+			l = elems.length;
+				while (l--) { 
+					ret[ret.length] = elems[l]; 
+				}
+				return ret;
+	  })();
+	 
+	  var shuffled = (function(){
+	    var l = allElems.length, 
+	    ret = [];
+	      while (l--) {
+	        var random = Math.floor(Math.random() * allElems.length),
+	            randEl = allElems[random].cloneNode(true);
+	        allElems.splice(random, 1);
+	        ret[ret.length] = randEl;
+	      }
+	        return ret; 
+	    })(), 
+	    l = elems.length;
+	    	while (l--) {
+	        elems[l].parentNode.insertBefore(shuffled[l], elems[l].nextSibling);
+	        elems[l].parentNode.removeChild(elems[l]);
+	    	}
+	 
+	}
 
 });
 
